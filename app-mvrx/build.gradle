@@ -1,0 +1,94 @@
+import dependencies.Dependencies
+
+import java.text.SimpleDateFormat
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+// Applying dependencies from dependencies.gradle
+apply from: Dependencies.dependency
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    androidExtensions {
+        experimental = true
+    }
+
+    //Customized APK name
+    android {
+        applicationVariants.all { variant ->
+            variant.outputs.all {
+                outputFileName =
+                        "CleanArc-${variant.versionName}-${variant.versionCode}-${buildTimeStamp()}-${variant.name}.apk"
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    kapt {
+        generateStubs = true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+static def buildTimeStamp() {
+    def df = new SimpleDateFormat("ddMMM_hh.mma")
+    df.setTimeZone(TimeZone.getTimeZone("IST"))
+    return df.format(new Date())
+}
+
+def getProperty(String filename, String propName) {
+    def propsFile = rootProject.file(filename)
+    if (propsFile.exists()) {
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+        if (props[propName] != null) {
+            return props[propName]
+        } else {
+            print("No such property " + propName + " in file " + filename)
+        }
+    } else {
+        print(filename + " does not exist!")
+    }
+}
