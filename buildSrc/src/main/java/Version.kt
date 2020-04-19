@@ -45,4 +45,8 @@ object Version {
     const val rxRelay = "2.0.0"
     const val rxBinding = "3.0.0"
     const val stetho = "1.5.1"
+
+    //MvRx
+    const val mvRx = "1.4.0"
+    const val epoxy = "3.9.0"
 }

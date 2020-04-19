@@ -125,4 +125,9 @@ object Dependencies {
         const val dokkaPluginClasspath =
             "org.jetbrains.dokka:dokka-gradle-plugin:${Version.dokkaVeresion}"
     }
+
+    object MvRx {
+        const val mvRx = "com.airbnb.android:mvrx:${Version.mvRx}"
+        const val epoxy = "com.airbnb.android:epoxy:${Version.epoxy}"
+    }
 }

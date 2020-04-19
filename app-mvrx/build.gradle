@@ -18,9 +18,10 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
+        buildConfigField "String", "TMDB_API_KEY", "\"${getProperty("local.properties", "tmdb_api_key")}\""
+        buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
     }
 
     buildTypes {
@@ -91,4 +92,9 @@ def getProperty(String filename, String propName) {
     } else {
         print(filename + " does not exist!")
     }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:+'
+    implementation 'androidx.constraintlayout:constraintlayout:+'
 }

@@ -4,6 +4,9 @@ apply from: Dependencies.common
 
 dependencies {
 
+    //MvRxDependencies
+    implementation Dependencies.MvRx.mvRx
+
     //App Module
     implementation project(Dependencies.Module.domain)
     implementation project(Dependencies.Module.cache)
