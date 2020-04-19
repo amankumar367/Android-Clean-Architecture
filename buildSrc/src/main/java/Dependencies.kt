@@ -8,7 +8,6 @@ object Dependencies {
 
 
     object Module {
-        const val core = ":core"
         const val data = ":data"
         const val cache = ":cache"
         const val remote = ":remote"

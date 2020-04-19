@@ -5,7 +5,6 @@ apply from: Dependencies.common
 dependencies {
 
     //App Module
-    implementation project(Dependencies.Module.core)
     implementation project(Dependencies.Module.domain)
     implementation project(Dependencies.Module.cache)
     implementation project(Dependencies.Module.data)
