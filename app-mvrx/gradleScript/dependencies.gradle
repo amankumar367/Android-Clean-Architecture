@@ -32,6 +32,10 @@ dependencies {
     implementation Dependencies.Dagger.daggerAndroidSupport
     kapt Dependencies.Dagger.processor
     kapt Dependencies.Dagger.compiler
+    
+    //Assisted Inject
+    compileOnly Dependencies.AssistedInject.annotationDagger2
+    kapt Dependencies.AssistedInject.processorDagger2
 
     //Room
     implementation Dependencies.Room.rxjava2

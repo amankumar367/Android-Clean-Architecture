@@ -17,6 +17,7 @@ object Version {
     const val androidx_112 = "1.1.3"
     const val androidx_100beta01 = "1.0.0-beta01"
     const val assertJVersion = "3.2.0"
+    const val assistedInject = "0.5.1"
     const val materialDesign = "1.0.0-rc01"
     const val mockito = "1.10.19"
     const val dagger2 = "2.21"

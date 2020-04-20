@@ -97,4 +97,5 @@ def getProperty(String filename, String propName) {
 dependencies {
     implementation 'androidx.appcompat:appcompat:+'
     implementation 'androidx.constraintlayout:constraintlayout:+'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

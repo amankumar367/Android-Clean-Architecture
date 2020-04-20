@@ -130,4 +130,13 @@ object Dependencies {
         const val mvRx = "com.airbnb.android:mvrx:${Version.mvRx}"
         const val epoxy = "com.airbnb.android:epoxy:${Version.epoxy}"
     }
+
+    object AssistedInject {
+        const val annotationDagger2 = "com.squareup.inject:assisted-inject-annotations-dagger2:${Version.assistedInject}"
+        const val processorDagger2 = "com.squareup.inject:assisted-inject-processor-dagger2:${Version.assistedInject}"
+        const val assistedInjectAnnotations = "com.squareup.inject:assisted-inject-annotations:${Version.assistedInject}"
+        const val assistedInjectProcessor = "com.squareup.inject:assisted-inject-processor:${Version.assistedInject}"
+        const val inflationInject = "com.squareup.inject:inflation-inject:${Version.assistedInject}"
+        const val inflationInjectProcessor = "com.squareup.inject:inflation-inject-processor:${Version.assistedInject}"
+    }
 }

@@ -2,8 +2,8 @@ package com.androchef.mvrx_app.ui.movielist
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.androchef.mvrx_app.R
 
 class MovieListActivity : AppCompatActivity() {
@@ -17,5 +17,13 @@ class MovieListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_list)
+        loadMovieListFragment()
     }
+
+    private fun loadMovieListFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer,MovieListFragment())
+            .commit()
+    }
+
 }
