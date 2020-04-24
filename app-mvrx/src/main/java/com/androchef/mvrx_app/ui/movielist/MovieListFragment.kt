@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.mvrx.*
 import com.androchef.mvrx_app.R
 import com.androchef.mvrx_app.extension.gone
+import com.androchef.mvrx_app.extension.toast
 import com.androchef.mvrx_app.extension.visible
 import com.androchef.mvrx_app.ui.movielist.adapter.MovieListAdapter
 import com.androchef.mvrx_app.ui.mvrx.MovieListViewModel
@@ -68,6 +69,13 @@ class MovieListFragment : BaseMvRxFragment(), MovieListAdapter.OnBookmarkClicked
                     it.listOfMovies.error.localizedMessage ?: "Some Error Came"
                 )
             }
+
+            when {
+                it.onBookmarkChange -> {
+                    toast("bookmark updated")
+                    fetchMovies()
+                }
+            }
         }
     }
 
@@ -95,7 +103,7 @@ class MovieListFragment : BaseMvRxFragment(), MovieListAdapter.OnBookmarkClicked
         mView.layoutError.visible()
     }
 
-    override fun onBookmarkChanged(movieView: MovieView) {
-        movieListViewModel.onBookmarkStatusChanged(movieView)
+    override fun onBookmarkChanged(movieView: MovieView, isBookMarked: Boolean) {
+        movieListViewModel.onBookmarkStatusChanged(movieView, isBookMarked)
     }
 }

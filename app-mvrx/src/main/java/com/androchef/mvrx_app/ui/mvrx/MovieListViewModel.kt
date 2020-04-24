@@ -42,7 +42,7 @@ class MovieListViewModel @AssistedInject constructor(
         getMovieListUseCase.execute(singleObserver)
     }
 
-    fun onBookmarkStatusChanged(movieView: MovieView) {
+    fun onBookmarkStatusChanged(movieView: MovieView,isBookmarked : Boolean) {
         val singleObserver = object : DisposableCompletableObserver() {
 
             override fun onComplete() {
@@ -58,7 +58,7 @@ class MovieListViewModel @AssistedInject constructor(
             }
         }
         
-        if (movieView.isBookMarked)
+        if (isBookmarked)
             bookmarkMovieUseCase.execute(singleObserver, movieView.id)
         else
             unBookmarkMovieUseCase.execute(singleObserver, movieView.id)

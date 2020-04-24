@@ -60,15 +60,14 @@ class MovieListAdapter(
         private fun onClicks(movieView: MovieView) {
             mView.ivBookmark.setOnClickListener {
                 it.isSelected = movieView.isBookMarked.not()
-                movieView.isBookMarked = it.isSelected
-                bookmarkClickedListener?.onBookmarkChanged(movieView)
+                bookmarkClickedListener?.onBookmarkChanged(movieView,it.isSelected)
             }
         }
     }
 
 
     interface OnBookmarkClickedListener {
-        fun onBookmarkChanged(movieView: MovieView)
+        fun onBookmarkChanged(movieView: MovieView,isBookMarked : Boolean)
     }
 
 }
